@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로젝트: [게임 프로젝트 이름]</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="game-intro.css" />
+  </head>
+  <body class="bg-gray-100 font-inter text-gray-800">
+    <!-- Navigation Bar (Optional - if integrated with a main portfolio) -->
+    <nav class="navbar">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a
+          href="./index.html#projects"
+          class="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+          >돌아가기</a
+        >
+      </div>
+    </nav>
+
+    <!-- Project Header Section -->
+    <header class="project-header">
+      <div class="container mx-auto px-4 py-16 text-center">
+        <h1
+          class="text-5xl md:text-6xl font-extrabold text-black leading-tight mb-4"
+        >
+          Blue Fish’s Adventure
+        </h1>
+        <p class="text-xl md:text-2xl text-darkgray-200">2D 어드벤쳐 게임</p>
+      </div>
+    </header>
+
+    <!-- Project Overview Section -->
+    <section class="project-section">
+      <div class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="relative rounded-xl overflow-hidden shadow-2xl">
+            <!-- Game Main Image/Video Placeholder -->
+            <img src="./imgs/blue_fish_main.png" alt="게임 메인 이미지" />
+          </div>
+          <div class="text-left">
+            <h2 class="section-title text-left">프로젝트 개요</h2>
+            <p class="text-lg leading-relaxed text-gray-700 mb-6">
+              이 프로젝트는 플레이어가 물고기로서 레벨에 맞는 먹이를 먹으며
+              성장하는 2D 게임입니다. 플레이어는 자신의 레벨에 맞는 먹이를
+              먹어야 하며, 레벨에 맞지 않는 먹이를 먹을 경우 피해를 입게 됩니다.
+              게임의 목표는 적절한 먹이를 통해 점수를 쌓고, 성장하는 것입니다.
+              점수를 높여가며 레벨 업을 경험하는 재미를 제공합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section class="project-section">
+      <div class="container mx-auto px-4 py-16">
+        <h2 class="section-title">주요 구현 내용</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12 text-left">
+          <div class="problem-solution-card">
+            <h3 class="text-2xl font-semibold text-green-600 mb-3">
+              에셋 제작
+            </h3>
+            <ul class="list-disc list-outside text-gray-700 ml-5">
+              <li>
+                게임의 시작 화면, 끝 화면, 진행 화면을 포함하여, 게임에 등장하는
+                모든 적, 캐릭터, 배경 등의 이미지를 직접 제작했습니다.
+              </li>
+            </ul>
+          </div>
+          <div class="problem-solution-card">
+            <h3 class="text-2xl font-semibold text-green-600 mb-3">
+              캐릭터 움직임 구현
+            </h3>
+            <ul class="list-disc list-outside text-gray-700 ml-5">
+              <li>
+                플레이어 캐릭터는 8방향으로 자유롭게 움직일 수 있으며, 각 방향에
+                맞춰 캐릭터가 회전하도록 구현하였습니다. 이를 통해 플레이어는 더
+                직관적이고 다양한 방향으로 이동할 수 있게 되었습니다.
+              </li>
+              <li>
+                8방향의 경우 플레이어를 기준으로 4분면을 생각하여 코드를
+                작성했습니다.
+              </li>
+            </ul>
+          </div>
+          <div class="problem-solution-card">
+            <h3 class="text-2xl font-semibold text-green-600 mb-3">
+              적 스폰 조건 설정
+            </h3>
+            <ul class="list-disc list-outside text-gray-700 ml-5">
+              <li>
+                화면에 있는 적의 개수를 실시간으로 확인하고, 특정 개수에
+                도달하면 해당 단계의 적이 더 이상 스폰되지 않도록 조건을
+                설정하였습니다. 이를 통해 게임의 난이도를 조절하고, 과도한 적
+                스폰을 방지하여 게임의 플레이어 경험을 향상시켰습니다.
+              </li>
+            </ul>
+          </div>
+          <div class="problem-solution-card">
+            <h3 class="text-2xl font-semibold text-green-600 mb-3">
+              낚싯줄 구현
+            </h3>
+            <ul class="list-disc list-outside text-gray-700 ml-5">
+              <li>
+                적 스폰과 유사하게, 낚싯줄도 무작위 위치에서 생성되도록
+                설정했습니다.
+              </li>
+              <li>
+                낚싯줄에는 collider를 추가하여, 플레이어가 낚싯줄에 닿으면
+                적들도 함께 올라가도록 구현하였습니다. 이를 통해 낚싯줄과 적
+                간의 상호작용을 통해 게임의 재미를 더했습니다.
+              </li>
+            </ul>
+          </div>
+          <div class="problem-solution-card">
+            <h3 class="text-2xl font-semibold text-green-600 mb-3">
+              체력/진화바/점수 UI 표시
+            </h3>
+            <ul class="list-disc list-outside text-gray-700 ml-5">
+              <li>
+                플레이어의 체력은 PlayerHPManger 스크립트로 관리되어, 적과
+                부딪힐 때마다 체력이 감소하고, 체력 상황 반영이 실시간으로 하트
+                이미지가 없어지며 시각적으로 확인할 수 있습니다.
+              </li>
+              <li>
+                각 적마다 얻을 수 있는 점수가 다르므로, 먹은 적의 개수를 세어
+                점수에 반영하도록 했습니다. 이를 통해 플레이어가 진행 상황에
+                따라 점수를 실시간으로 확인할 수 있습니다.
+              </li>
+              <li>
+                플레이어의 진화 단계는 UI를 통해 실시간으로 업데이트되며,
+                플레이어는 게임 진행에 따라 캐릭터의 발전을 시각적으로 확인할 수
+                있습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Stack Section -->
+    <section class="project-section">
+      <div class="container mx-auto px-4 py-16">
+        <h2 class="section-title">기술 스택</h2>
+        <div class="flex flex-wrap justify-center gap-8 mt-12">
+          <p class="tech-tag">Unity</p>
+          <p class="tech-tag">C#</p>
+          <p class="tech-tag">Git (Version Control)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="project-section footer text-black">
+      <div class="container mx-auto px-4 py-20 text-center">
+        <p class="text-xl md:text-2xl mb-10">Github 코드 확인 가능</p>
+        <div class="flex flex-col md:flex-row justify-center gap-6">
+          <a
+            href="https://github.com/kaylahee/Unreal_Puzzle_Game_Cpp"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-button bg-gray-700 hover:bg-gray-800"
+            >GitHub에서 코드 보기</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+      <div class="container mx-auto px-4 text-white">
+        <p>&copy; 2025 한승희 포트폴리오. 모든 권리 보유.</p>
+      </div>
+    </footer>
+  </body>
+</html>

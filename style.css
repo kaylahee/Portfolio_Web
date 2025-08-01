@@ -178,55 +178,83 @@ body {
 }
 
 /* 프로젝트 */
-#procets.section-container {
+#projects.section-container {
   min-height: 100vh;
+  width: 100vw;
   padding-top: 80px;
   padding-bottom: 80px;
   margin-top: 0;
+
+  display: flex;
+  flex-direction: row; /* 가로 정렬 */
+  align-items: center; /* 위쪽 정렬 (필요에 따라 center도 가능) */
+  justify-content: space-evenly; /* 양 끝에 배치 */
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  width: 100%;
+.project-container {
+  height: 600px; /* 카드 3개 높이 = 200px * 3 */
+  overflow: hidden;
+  position: relative;
+}
+
+.project-list-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 카드 간격 줄이기 */
+  transition: transform 0.5s ease-in-out;
 }
 
 .project-card {
-  height: 500px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 550px;
+  height: 400px; /* 높이 줄임 */
+  margin: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  /* 그림자 수정 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+    /* 아래쪽 부드러운 그림자 */ 4px 4px 12px rgba(0, 0, 0, 0.07),
+    /* 오른쪽 아래쪽 그림자 */ -4px 4px 12px rgba(0, 0, 0, 0.07); /* 왼쪽 아래쪽 그림자 */
 }
 
-.photo-wrapper{
-    width: 350px;
-    height: 200px;
+.project-card h3 {
+  font-size: 1.1rem;
 }
 
-img{
-    width: 300px;
+.project-card p {
+  width: 80%;
+
+  font-size: 15px;
+  text-align: justify;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.project-card img {
+  /* max-width: 100%; */
+  width: 80%;
+  /* height: 250px; */
+  object-fit: cover;
+
+  border-radius: 10px;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  outline: 2.5px solid lightslategray;
 }
 
 .project-card h3 {
   font-size: 1.8rem;
   font-weight: 600;
   color: #2d3748;
-  margin-bottom: 10px;
-}
-
-.project-card p {
-  font-size: 1rem;
-  color: #4a5568;
-  line-height: 1.6;
+  margin: 10px;
 }
 
 /* 연락처 */

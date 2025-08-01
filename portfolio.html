@@ -128,10 +128,7 @@
       <h2 class="section-title">프로젝트</h2>
       <div class="project-container">
         <div class="project-list-vertical">
-          <div
-            class="project-card"
-            onclick="location.href='puzzlechambers.html'"
-          >
+          <div class="project-card" data-project-id="project1">
             <img src="./imgs/unreal_puzzle_game.png" alt="" />
             <h3>Puzzle Chambers Escape Game</h3>
             <p>
@@ -139,7 +136,7 @@
               주어진 문제를 풀어 탈출해야 합니다.
             </p>
           </div>
-          <div class="project-card" onclick="location.href='bluefish.html'">
+          <div class="project-card" data-project-id="project2">
             <img src="./imgs/blue_fish_main.png" alt="" />
             <h3>Blue Fish’s Adventure</h3>
             <p>
@@ -147,7 +144,7 @@
               성장하는 2D 게임입니다.
             </p>
           </div>
-          <div class="project-card">
+          <div class="project-card" data-project-id="project3">
             <img src="./imgs/room_escape.png" alt="" />
             <h3>Room Escape Game</h3>
             <p>
@@ -155,7 +152,7 @@
               탈출해야 하는 방탈출 게임입니다.
             </p>
           </div>
-          <div class="project-card">
+          <div class="project-card" data-project-id="project4">
             <img src="./imgs/maze_game_main.png" alt="" />
             <h3>Maze Game</h3>
             <p>
@@ -163,13 +160,21 @@
               탈출해야 합니다.
             </p>
           </div>
-          <div class="project-card">
+          <div class="project-card" data-project-id="project5">
             <img src="./imgs/metaverse_main.png" alt="" />
             <h3>Drone Test Simulation</h3>
             <p>
               이 프로젝트는 드론 조종사 자격증 시험 시뮬레이션으로 메타버스로
               즐길 수 있습니다.
             </p>
+          </div>
+        </div>
+
+        <!-- 모달 창 -->
+        <div id="project-modal" class="modal">
+          <div class="modal-content">
+            <span id="close-modal">&times;</span>
+            <div id="modal-body"></div>
           </div>
         </div>
       </div>
@@ -216,6 +221,36 @@
       requestAnimationFrame(step);
     </script>
 
+    <script>
+      const projectContents = {
+        project1:
+          "<h3>🎨 프로젝트 1</h3><p>이 프로젝트는 포트폴리오 웹사이트입니다...</p>",
+        project2:
+          "<h3>🛠️ 프로젝트 2</h3><p>이 프로젝트는 테트리스 게임입니다...</p>",
+        project3:
+          "<h3>🎮 프로젝트 3</h3><p>이 프로젝트는 Unity 액션 게임입니다...</p>",
+      };
+
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const id = card.getAttribute("data-project-id");
+          document.getElementById("modal-body").innerHTML = projectContents[id];
+          document.getElementById("project-modal").style.display = "flex";
+        });
+      });
+
+      document.getElementById("close-modal").addEventListener("click", () => {
+        document.getElementById("project-modal").style.display = "none";
+      });
+
+      // ESC 눌러서 닫기
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.getElementById("project-modal").style.display = "none";
+        }
+      });
+    </script>
+
     <!-- 연락처 섹션 -->
     <section id="contact" class="section-container">
       <h2 class="section-title">Contacts</h2>
@@ -236,7 +271,7 @@
             <rect width="20" height="16" x="2" y="4" rx="2" />
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
           </svg>
-          <a href="mailto:kaylahee0410@gmail.com">kaylahee0410@gmail.com</a>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
         </div>
         <div class="contact-item">
           <svg
@@ -284,7 +319,7 @@
             <path d="M15 12h.01" />
           </svg>
           <a
-            href="https://github.com/kaylahee"
+            href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
             >GitHub 프로필</a

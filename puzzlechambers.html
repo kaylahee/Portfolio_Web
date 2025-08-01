@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로젝트: [게임 프로젝트 이름]</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="game-intro.css" />
+  </head>
+  <body class="bg-gray-100 font-inter text-gray-800">
+    <!-- Navigation Bar (Optional - if integrated with a main portfolio) -->
+    <nav class="navbar">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a
+          href="./index.html#projects"
+          class="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+          >돌아가기</a
+        >
+      </div>
+    </nav>
+
+    <!-- Project Header Section -->
+    <header class="project-header">
+      <div class="container mx-auto px-4 py-16 text-center">
+        <h1
+          class="text-5xl md:text-6xl font-extrabold text-black leading-tight mb-4"
+        >
+          Puzzle Chambers Game
+        </h1>
+        <p class="text-xl md:text-2xl text-darkgray-200">3D 방탈출 게임</p>
+      </div>
+    </header>
+
+    <!-- Project Overview Section -->
+    <section class="project-section">
+      <div class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="relative rounded-xl overflow-hidden shadow-2xl">
+            <!-- Game Main Image/Video Placeholder -->
+            <img src="./imgs/unreal_puzzle_game.png" alt="게임 메인 이미지" />
+          </div>
+          <div class="text-left">
+            <h2 class="section-title text-left">프로젝트 개요</h2>
+            <p class="text-lg leading-relaxed text-gray-700 mb-6">
+              이 프로젝트는 퍼즐 방탈출 게임으로, 플레이어는 총 3개의 방에서
+              주어진 문제를 풀어 탈출해야 합니다. 각 방에는 도전 과제가 있으며,
+              일부 방은 서로 연계된 요소를 포함하고 있습니다.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 space-y-2 text-md">
+              <li>
+                <strong>1번 방</strong>: 퍼즐 조각을 보드에 맞추어 문제를
+                해결합니다.
+              </li>
+              <li>
+                <strong>2번 방</strong>: 두 개의 무게 저울을 이용하여 정확한
+                무게를 맞추어야 합니다.
+              </li>
+              <li>
+                <strong>3번 방</strong>
+                : 랜턴을 사용하여 빛을 통해 숨겨진 단서를 찾아 탈출합니다.
+              </li>
+              <li>
+                <strong>4번 방</strong>
+                : 3번 방에서 얻은 힌트로 알맞는 물체를 골라 탈출합니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section class="project-section">
+      <div class="container mx-auto px-4 py-16">
+        <h2 class="section-title">주요 구현 내용</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12 text-left">
+          <div class="problem-solution-card">
+            <h3 class="text-2xl font-semibold text-green-600 mb-3">
+              1번 방 구현
+            </h3>
+            <ul class="list-disc list-outside text-gray-700 ml-5">
+              <li>
+                플레이어가 E 버튼을 눌러 물체를 집을 수 있도록 구현했습니다.
+              </li>
+              <li>
+                퍼즐 조각을 보드에 갖다 대면 box collider가 겹칠 때 스냅되도록
+                하여 자연스럽게 배치할 수 있도록 했습니다.
+              </li>
+              <li>
+                퍼즐에 color와 shape 속성을 지정하여 올바른 위치에 스냅되었는지
+                비교할 수 있게 구현했습니다.
+              </li>
+            </ul>
+          </div>
+          <div class="problem-solution-card">
+            <h3 class="text-2xl font-semibold text-green-600 mb-3">
+              2번 방 구현
+            </h3>
+            <ul class="list-disc list-outside text-gray-700 ml-5">
+              <li>
+                무게 측정 장치에 올려진 큐브들의 Mass 값을 실시간으로 합산하여
+                총 무게를 계산하고, 두 장치의 총 무게가 동일할 경우 문이
+                열리도록 구현했습니다.
+              </li>
+              <li>
+                PuzzleManager 스크립트 내에서 Mass 변수를 활용해 각 큐브별로
+                무게를 개별 설정할 수 있도록 구현했습니다.
+              </li>
+            </ul>
+          </div>
+          <div class="problem-solution-card">
+            <h3 class="text-2xl font-semibold text-green-600 mb-3">
+              3번 방 구현
+            </h3>
+            <ul class="list-disc list-outside text-gray-700 ml-5">
+              <li>
+                랜턴을 장착한 후 R 키를 누르면 불빛이 켜지고, 불빛에 해당하는
+                콜라이더를 활성화하여 벽에 숨겨진 알파벳이 드러나도록
+                구현했습니다. 불빛이 꺼지면 콜라이더도 비활성화되어 알파벳이
+                다시 보이지 않게 됩니다.
+              </li>
+            </ul>
+          </div>
+          <div class="problem-solution-card">
+            <h3 class="text-2xl font-semibold text-green-600 mb-3">
+              4번 방 구현
+            </h3>
+            <ul class="list-disc list-outside text-gray-700 ml-5">
+              <li>
+                3번 방에서 얻은 힌트로 알맞는 물체를 골라 탈출할 수 있도록
+                구현했습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Stack Section -->
+    <section class="project-section">
+      <div class="container mx-auto px-4 py-16">
+        <h2 class="section-title">기술 스택</h2>
+        <div class="flex flex-wrap justify-center gap-8 mt-12">
+          <p class="tech-tag">Unreal Engine</p>
+          <p class="tech-tag">C++</p>
+          <p class="tech-tag">Git (Version Control)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="project-section footer text-black">
+      <div class="container mx-auto px-4 py-20 text-center">
+        <p class="text-xl md:text-2xl mb-10">
+          유튜브 영상 시청 가능 | Github 코드 확인 가능
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-6">
+          <a
+            href="https://www.youtube.com/watch?v=bIZLJ3DH37s"
+            class="cta-button bg-purple-600 hover:bg-purple-700"
+            >유튜브 영상</a
+          >
+          <a
+            href="https://github.com/kaylahee/Unreal_Puzzle_Game_Cpp"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-button bg-gray-700 hover:bg-gray-800"
+            >GitHub에서 코드 보기</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+      <div class="container mx-auto px-4 text-white">
+        <p>&copy; 2025 한승희 포트폴리오. 모든 권리 보유.</p>
+      </div>
+    </footer>
+  </body>
+</html>
