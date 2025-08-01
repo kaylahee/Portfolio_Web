@@ -1,98 +1,206 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>한승희의 포트폴리오</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="style.css" rel="stylesheet">
-</head>
-<body>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
     <!-- 네비게이션 바 -->
     <nav class="navbar">
-        <div class="navbar-container">
-            <a href="#main-page" class="navbar-link">Home</a>
-            <a href="#about-me" class="navbar-link">자기 소개</a>
-            <a href="#projects" class="navbar-link">프로젝트</a>
-            <a href="#contact" class="navbar-link">Contacts</a>
-        </div>
+      <div class="navbar-container">
+        <a href="#main-page" class="navbar-link">Home</a>
+        <a href="#about-me" class="navbar-link">자기 소개</a>
+        <a href="#projects" class="navbar-link">프로젝트</a>
+        <a href="#contact" class="navbar-link">Contacts</a>
+      </div>
     </nav>
 
     <!-- 메인 페이지 섹션 -->
+    <!-- 타이핑 효과용 라이브러리 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- 메인 페이지 섹션 -->
     <section id="main-page">
-        <div class="main-page-content">
-            <p class="main-greeting">안녕하세요!</p>
-            <h1 class="main-name-title">게임 프로그래머 한승희입니다.</h1>
-            <p class="main-tagline">
-                환영합니다! 저는 사람들에게 즐거움을 선사하는 게임을 만들고 있습니다.
-                저의 작업들을 둘러보시고 저에 대해 더 알아보세요.
-            </p>
-        </div>
+      <div class="main-page-content opacity-0 translate-y-10 animate-fadeInUp">
+        <p class="main-greeting">안녕하세요!</p>
+        <h1 class="main-name-title">
+          <!-- 타이핑 효과가 적용될 요소 -->
+          <span id="typed-text"></span>
+        </h1>
+        <p
+          class="main-tagline opacity-0 translate-y-10 animate-fadeInUp delay-500"
+        >
+          환영합니다! 저는 사람들에게 즐거움을 선사하는 게임을 만들고
+          있습니다.<br />
+          저의 작업들을 둘러보시고 저에 대해 더 알아보세요.
+        </p>
+
+        <!-- 스크롤 유도 화살표 -->
+        <div class="scroll-down-arrow animate-bounce">⌄</div>
+      </div>
     </section>
+
+    <!-- 타이핑 효과 초기화 스크립트 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new Typed("#typed-text", {
+          strings: ["게임 프로그래머 한승희입니다."],
+          typeSpeed: 80,
+          backSpeed: 40,
+          fadeOut: false,
+          loop: false,
+          showCursor: true,
+          cursorChar: "|",
+        });
+      });
+    </script>
 
     <!-- 자기 소개 섹션 -->
     <section id="about-me" class="section-container">
+      <div class="profile-wrapper">
         <div class="profile-image-wrapper">
-            <!-- 프로필 사진 URL을 여기에 넣어주세요 -->
-            <img src="./imgs/한승희_반명함-removebg-preview.png" 
-                 alt="한승희 프로필 사진" 
-                 class="profile-image"
-                 onerror="this.onerror=null;this.src='https://placehold.co/220x220/A7D9E8/FFFFFF?text=Placeholder';"
-            >
+          <!-- 프로필 사진 URL을 여기에 넣어주세요 -->
+          <img
+            src="./imgs/한승희_반명함-removebg-preview.png"
+            alt="한승희 프로필 사진"
+            class="profile-image"
+            onerror="this.onerror=null;this.src='https://placehold.co/220x220/A7D9E8/FFFFFF?text=Placeholder';"
+          />
         </div>
         <div class="about-me-text-content">
-            <h2 class="section-title">자기 소개</h2>
-            <p class="about-me-tagline">
-                저는 사람들에게 즐거움을 주는 게임을 만듭니다.
-                사용자들에게 잊지 못할 경험을 선사하는 것에 열정을 가지고 있습니다.
-                새로운 기술을 배우고 적용하는 것을 즐기며, 
-                도전적인 문제 해결을 통해 성장하는 것을 추구합니다.
-                특히 게임 디자인과 프로그래밍의 경계에서 혁신적인 아이디어를 구현하는 데 흥미를 느낍니다.
-            </p>
+          <h2 class="section-title">자기 소개</h2>
+          <p class="about-me-tagline">
+            저는 사람들에게 즐거움을 주는 게임을 만듭니다. 사용자들에게 잊지
+            못할 경험을 선사하는 것에 열정을 가지고 있습니다. 새로운 기술을
+            배우고 적용하는 것을 즐기며, 도전적인 문제 해결을 통해 성장하는 것을
+            추구합니다. 특히 게임 디자인과 프로그래밍의 경계에서 혁신적인
+            아이디어를 구현하는 데 흥미를 느낍니다.
+          </p>
         </div>
+      </div>
     </section>
 
     <!-- 프로젝트 섹션 -->
     <section id="projects" class="section-container">
-        <h2 class="section-title">프로젝트</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>프로젝트 1: 3D 어드벤처 게임</h3>
-                <p>Unity 엔진과 C#을 사용하여 개발한 3D 어드벤처 게임입니다. 플레이어는 광활한 세계를 탐험하며 퍼즐을 풀고 적과 싸웁니다. 물리 기반 렌더링(PBR)과 최적화된 스크립팅을 통해 부드러운 게임 플레이를 구현했습니다.</p>
-            </div>
-            <div class="project-card">
-                <h3>프로젝트 2: 모바일 퍼즐 게임</h3>
-                <p>Casual한 모바일 퍼즐 게임으로, 간단한 조작으로 누구나 즐길 수 있도록 디자인했습니다. 사용자 인터페이스(UI)와 사용자 경험(UX)에 중점을 두어 직관적인 플레이 경험을 제공합니다. Firebase를 이용한 리더보드 시스템을 포함합니다.</p>
-            </div>
-            <div class="project-card">
-                <h3>프로젝트 3: AI 기반 NPC 시스템</h3>
-                <p>게임 내 NPC의 행동을 제어하는 인공지능 시스템을 개발했습니다. 행동 트리(Behavior Tree)와 상태 머신(State Machine)을 활용하여 NPC가 플레이어의 행동에 따라 동적으로 반응하도록 구현했습니다. Python과 C++로 백엔드 로직을 구현했습니다.</p>
-            </div>
-            <div class="project-card">
-                <h3>프로젝트 4: 웹 기반 미니 게임 컬렉션</h3>
-                <p>HTML5, CSS3, JavaScript를 사용하여 웹 브라우저에서 바로 플레이할 수 있는 미니 게임 컬렉션입니다. 반응형 디자인을 적용하여 모바일과 데스크톱 환경 모두에서 최적화된 경험을 제공합니다.</p>
-            </div>
+      <h2 class="section-title">프로젝트</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>프로젝트 1: 3D 어드벤처 게임</h3>
+          <p>
+            Unity 엔진과 C#을 사용하여 개발한 3D 어드벤처 게임입니다. 플레이어는
+            광활한 세계를 탐험하며 퍼즐을 풀고 적과 싸웁니다. 물리 기반
+            렌더링(PBR)과 최적화된 스크립팅을 통해 부드러운 게임 플레이를
+            구현했습니다.
+          </p>
         </div>
+        <div class="project-card">
+          <h3>프로젝트 2: 모바일 퍼즐 게임</h3>
+          <p>
+            Casual한 모바일 퍼즐 게임으로, 간단한 조작으로 누구나 즐길 수 있도록
+            디자인했습니다. 사용자 인터페이스(UI)와 사용자 경험(UX)에 중점을
+            두어 직관적인 플레이 경험을 제공합니다. Firebase를 이용한 리더보드
+            시스템을 포함합니다.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>프로젝트 3: AI 기반 NPC 시스템</h3>
+          <p>
+            게임 내 NPC의 행동을 제어하는 인공지능 시스템을 개발했습니다. 행동
+            트리(Behavior Tree)와 상태 머신(State Machine)을 활용하여 NPC가
+            플레이어의 행동에 따라 동적으로 반응하도록 구현했습니다. Python과
+            C++로 백엔드 로직을 구현했습니다.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>프로젝트 4: 웹 기반 미니 게임 컬렉션</h3>
+          <p>
+            HTML5, CSS3, JavaScript를 사용하여 웹 브라우저에서 바로 플레이할 수
+            있는 미니 게임 컬렉션입니다. 반응형 디자인을 적용하여 모바일과
+            데스크톱 환경 모두에서 최적화된 경험을 제공합니다.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- 연락처 섹션 -->
     <section id="contact" class="section-container">
-        <h2 class="section-title">Contacts</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                <a href="mailto:your.email@example.com">your.email@example.com</a>
-            </div>
-            <div class="contact-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn 프로필</a>
-            </div>
-            <div class="contact-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.44-.78-3.46 0 0-1 0-2 1-.22-.75-1.24-1.33-2-1.5-.76-.2-1.6-.17-2.42.1-.76.2-1.45.63-1.96 1.22L6 19h-3v4c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-4H15zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/><path d="M9 12h.01"/><path d="M15 12h.01"/></svg>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub 프로필</a>
-            </div>
+      <h2 class="section-title">Contacts</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-mail"
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
         </div>
+        <div class="contact-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-linkedin"
+          >
+            <path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            />
+            <rect width="4" height="12" x="2" y="9" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+          <a
+            href="https://www.linkedin.com/in/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn 프로필</a
+          >
+        </div>
+        <div class="contact-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-github"
+          >
+            <path
+              d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.44-.78-3.46 0 0-1 0-2 1-.22-.75-1.24-1.33-2-1.5-.76-.2-1.6-.17-2.42.1-.76.2-1.45.63-1.96 1.22L6 19h-3v4c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-4H15zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"
+            />
+            <path d="M9 12h.01" />
+            <path d="M15 12h.01" />
+          </svg>
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub 프로필</a
+          >
+        </div>
+      </div>
     </section>
-</body>
+  </body>
 </html>
