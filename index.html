@@ -25,36 +25,75 @@
 
     <!-- 메인 페이지 섹션 -->
     <section id="main-page">
-      <div class="main-page-content opacity-0 translate-y-10 animate-fadeInUp">
-        <p class="main-greeting">안녕하세요!</p>
+      <div class="main-page-content">
+        <!-- 1. 인사말 -->
+        <p id="greeting-text" class="main-greeting opacity-0">안녕하세요!</p>
+
+        <!-- 2. 타이핑 텍스트 -->
         <h1 class="main-name-title">
-          <!-- 타이핑 효과가 적용될 요소 -->
           <span id="typed-text"></span>
         </h1>
-        <p
-          class="main-tagline opacity-0 translate-y-10 animate-fadeInUp delay-500"
-        >
-          환영합니다! 저는 사람들에게 즐거움을 선사하는 게임을 만들고
-          있습니다.<br />
+
+        <!-- 3. 태그라인 -->
+        <p id="tagline-text" class="main-tagline opacity-0 translate-y-10">
+          저는 사람들에게 즐거움을 선사하는 게임을 만들고 있습니다.<br />
           저의 작업들을 둘러보시고 저에 대해 더 알아보세요.
         </p>
 
         <!-- 스크롤 유도 화살표 -->
-        <div class="scroll-down-arrow animate-bounce">⌄</div>
+        <div
+          id="scroll-arrow"
+          class="scroll-down-arrow opacity-0 cursor-pointer"
+        >
+          ⌄
+        </div>
       </div>
     </section>
 
-    <!-- 타이핑 효과 초기화 스크립트 -->
+    <!-- 타이핑 효과 및 순서 제어 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        new Typed("#typed-text", {
-          strings: ["게임 프로그래머 한승희입니다."],
-          typeSpeed: 80,
-          backSpeed: 40,
-          fadeOut: false,
-          loop: false,
-          showCursor: true,
-          cursorChar: "|",
+        const greeting = document.getElementById("greeting-text");
+        const tagline = document.getElementById("tagline-text");
+        const scrollArrow = document.getElementById("scroll-arrow");
+
+        // 1. 인사말 등장
+        greeting.style.transition = "opacity 1s ease";
+        greeting.classList.remove("opacity-0");
+        greeting.classList.add("opacity-100");
+
+        // 2. 타이핑 효과는 약간 지연 후 시작
+        setTimeout(() => {
+          new Typed("#typed-text", {
+            strings: ["게임 프로그래머 한승희입니다."],
+            typeSpeed: 80,
+            backSpeed: 40,
+            loop: false,
+            showCursor: true,
+            cursorChar: "|",
+            onComplete: () => {
+              // 3. 태그라인 등장
+              tagline.style.transition = "opacity 1s ease, transform 1s ease";
+              tagline.classList.remove("opacity-0", "translate-y-10");
+              tagline.classList.add("opacity-100", "translate-y-0");
+
+              // 4. 스크롤 화살표 등장 (조금 더 늦게)
+              setTimeout(() => {
+                scrollArrow.style.transition = "opacity 1s ease";
+                scrollArrow.classList.remove("opacity-0");
+                scrollArrow.classList.add("opacity-100");
+              }, 500); // 태그라인 뜨고 0.5초 후
+            },
+          });
+        }, 1000); // 인사말 1초 후 타이핑 시작
+
+        // 화살표 클릭 시 다음 섹션으로 스크롤
+        scrollArrow.addEventListener("click", () => {
+          const nextSection = document.getElementById("about-me");
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: "smooth" });
+          }
         });
       });
     </script>
@@ -89,39 +128,35 @@
       <h2 class="section-title">프로젝트</h2>
       <div class="project-grid">
         <div class="project-card">
-          <h3>프로젝트 1: 3D 어드벤처 게임</h3>
-          <p>
-            Unity 엔진과 C#을 사용하여 개발한 3D 어드벤처 게임입니다. 플레이어는
-            광활한 세계를 탐험하며 퍼즐을 풀고 적과 싸웁니다. 물리 기반
-            렌더링(PBR)과 최적화된 스크립팅을 통해 부드러운 게임 플레이를
-            구현했습니다.
-          </p>
+          <div class="photo-wrapper">
+            <img src="./imgs/unreal_puzzle_game.png" alt="" />
+          </div>
+          <h3>Puzzle Chambers Escape Game</h3>
+          <p>asd</p>
         </div>
         <div class="project-card">
-          <h3>프로젝트 2: 모바일 퍼즐 게임</h3>
-          <p>
-            Casual한 모바일 퍼즐 게임으로, 간단한 조작으로 누구나 즐길 수 있도록
-            디자인했습니다. 사용자 인터페이스(UI)와 사용자 경험(UX)에 중점을
-            두어 직관적인 플레이 경험을 제공합니다. Firebase를 이용한 리더보드
-            시스템을 포함합니다.
-          </p>
+          <div class="photo-wrapper">
+            <img src="./imgs/blue_fish_main.png" alt="" />
+          </div>
+          <h3>Blue Fish’s Adventure</h3>
         </div>
         <div class="project-card">
-          <h3>프로젝트 3: AI 기반 NPC 시스템</h3>
-          <p>
-            게임 내 NPC의 행동을 제어하는 인공지능 시스템을 개발했습니다. 행동
-            트리(Behavior Tree)와 상태 머신(State Machine)을 활용하여 NPC가
-            플레이어의 행동에 따라 동적으로 반응하도록 구현했습니다. Python과
-            C++로 백엔드 로직을 구현했습니다.
-          </p>
+          <div class="photo-wrapper">
+            <img src="./imgs/room_escape.png" alt="" />
+          </div>
+          <h3>Room Escape Game</h3>
         </div>
         <div class="project-card">
-          <h3>프로젝트 4: 웹 기반 미니 게임 컬렉션</h3>
-          <p>
-            HTML5, CSS3, JavaScript를 사용하여 웹 브라우저에서 바로 플레이할 수
-            있는 미니 게임 컬렉션입니다. 반응형 디자인을 적용하여 모바일과
-            데스크톱 환경 모두에서 최적화된 경험을 제공합니다.
-          </p>
+          <div class="photo-wrapper">
+            <img src="./imgs/maze_game_main.png" alt="" />
+          </div>
+          <h3>Maze Game</h3>
+        </div>
+        <div class="project-card">
+          <div class="photo-wrapper">
+            <img src="./imgs/metaverse_main.png" alt="" />
+          </div>
+          <h3>Drone Test Simuation</h3>
         </div>
       </div>
     </section>

@@ -80,11 +80,11 @@ body {
 #main-page {
   min-height: 100vh;
   margin-top: 0;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   box-shadow: none;
   background-color: transparent;
   text-align: center;
@@ -193,12 +193,22 @@ body {
 }
 
 .project-card {
+  height: 500px;
   background-color: #ffffff;
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-wrapper{
+    width: 350px;
+    height: 200px;
+}
+
+img{
+    width: 300px;
 }
 
 .project-card:hover {
@@ -266,32 +276,31 @@ body {
   }
 }
 
-
 /* 페이드인 + 위로 이동 애니메이션 키프레임 정의 */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 애니메이션 적용 클래스 정의 */
 .animate-fadeInUp {
-    animation: fadeInUp 1s ease forwards;
+  animation: fadeInUp 1s ease forwards;
 }
 
 .animate-fadeInUp.delay-500 {
-    animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 
 /* 스크롤 유도 화살표 스타일 */
 .scroll-down-arrow {
-    margin-top: 60px;
-    font-size: 3rem;
-    color: #a0aec0;
-    cursor: pointer;
+  margin-top: 60px;
+  font-size: 3rem;
+  color: #a0aec0;
+  cursor: pointer;
 }
